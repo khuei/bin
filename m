@@ -11,4 +11,5 @@ youtube-dl \
 	--add-metadata \
 	--audio-quality 0 \
 	--embed-thumbnail \
+	--output '%(title)s.%(ext)s' \
 	"$1"
