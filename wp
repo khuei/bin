@@ -2,11 +2,25 @@
 #
 # [w]all[p]aper
 
-cd -- ~/pictures/wallpaper 2>/dev/null || {
-	echo 'error: cannot find wallpaper directory' 1>&2
-	exit 1
-}
+input="$1"
 
-picture=$(find . -type f | awk 'BEGIN {srand()} {print rand(), $0}' |
-          sort -n -k1 | cut -d ' ' -f2 | tail -1)
-xwallpaper --zoom "$picture" >/dev/null
+if [ -z "$input" ]; then
+	input=~/pictures/wallpaper
+	[ -d "$input" ] || {
+		echo 'default directory not found: ' $input
+		exit 1
+	}
+fi
+
+if [ -d "$input" ]; then
+	cd -- "$input" 2>/dev/null || {
+		echo 'error: cannot find wallpaper directory' 1>&2
+		exit 1
+	}
+
+	picture=$(find . -type f | awk 'BEGIN {srand()} {print rand(), $0}' |
+	sort -n -k1 | cut -d ' ' -f2 | tail -1)
+	xwallpaper --zoom "$picture" >/dev/null
+else
+	xwallpaper --zoom "$input" >/dev/null
+fi
