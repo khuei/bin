@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# [s]peed [u]p [v]ideo
+
+[ "$1" ] || {
+	echo 'error: no input file detected' 1>&2
+	exit 1
+}
+[ "$2" ] || {
+	echo 'error: no speed factor detected' 1>&2
+	exit 1
+}
+
+ffmpeg -i "$1" -filter:v "setpts=PTS/$2" "speed-up-$1"
