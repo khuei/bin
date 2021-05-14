@@ -18,7 +18,7 @@ if [ -d "$input" ]; then
 		exit 1
 	}
 
-	picture=$(find . -type f | awk 'BEGIN {srand()} {print rand(), $0}' |
+	picture=$(find . -type f -not -path "./.git" | awk 'BEGIN {srand()} {print rand(), $0}' |
 	sort -n -k1 | cut -d ' ' -f2 | tail -1)
 	xwallpaper --zoom "$picture" >/dev/null
 else
