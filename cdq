@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+[ -s 'Cargo.lock' ] || {
+	echo 'error: Cargo.lock is not detected' 1>&2
+	exit 1
+}
+
+sed '/^[name|version]/!d' Cargo.lock > dependency
+sed -i '/^source/d' dependency
+sed -i 's/^name\s=\s//' dependency
+sed -i 's/^version\s=\s//' dependency
+sed -i 's/"//g' dependency
+sed -i 's/\n\w/-/' dependency
+nvim -c '%s/\n\(\d\)/-\1' -c x dependency
