@@ -2,6 +2,6 @@
 #
 # [m]a[k]e [s]cript
 
-[ "$1" ] || exit 1
+[ "$1" ] && [ "$2" ] || exit 1
 
-printf '#!/bin/sh\n' > "$1" && chmod +x "$1"
+printf "#!/usr/bin/env $2\n" > "$1" && chmod +x "$1"
