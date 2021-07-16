@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+#
+# [C]argo [D]ependency [Q]uery
 
 [ -s 'Cargo.lock' ] || {
 	echo 'error: Cargo.lock is not detected' 1>&2
