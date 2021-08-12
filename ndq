@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+#
+# [N]ode [D]ependency [Q]uery
+
+# Create empty file to store dependency information
+: > dependency
+
+# change to dependency directory
+cd -- "./node_modules" 2>/dev/null || {
+	echo 'error: dependency directory is not detected' 1>&2
+	exit 1
+}
+
+# get name and version of each dependency
+find . -name 'package.json' -exec grep -e '^  "name"' -e '^  "version"' {} ';' >> ../dependency
+
+# change back to root directory
+cd ..
+
+# format dependency information
+sed -i 's/\s//g' dependency
+sed -i 's/"//g' dependency
+sed -i 's/,//g' dependency
+sed -i 's/^name://' dependency
+sed -i 's/^version://' dependency
+nvim -c '%s/\n\(\d\)/:\1' -c x dependency
