@@ -4,4 +4,4 @@
 
 [ "$1" ] && [ "$2" ] || exit 1
 
-printf "#!/usr/bin/env $2\n" > "$1" && chmod +x "$1"
+printf "#!/usr/bin/env %s\n" "$2" > "$1" && chmod +x "$1"
