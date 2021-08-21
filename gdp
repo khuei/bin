@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+#
+# [G]o [D]ependency [P]arser
 
 [ -s 'go.sum' ] || {
 	echo 'error: go.sum is not detected' 1>&2
