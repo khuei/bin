@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 #
-# [N]ode [D]ependency [Q]uery
+# [N]ode [D]ependency [P]arser
 
 # Create empty file to store dependency information
 : > dependency
