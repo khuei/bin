@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+[ -s 'go.sum' ] || {
+	echo 'error: go.sum is not detected' 1>&2
+	exit 1
+}
+
+sed 's/\sh1:.*//g' go.sum > dependency
+sed -i 's/^/"/' dependency
+sed -i 's/$/"/' dependency
