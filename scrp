@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# [Scr]a[p]
+
+scratch=$(mktemp -d)
+echo 'Spawing subshell in scratch directory:'
+echo "$scratch"
+(cd $scratch; zsh)
+echo "Removing scratch directory"
+rm -rf "$scratch"
