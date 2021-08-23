@@ -4,4 +4,8 @@
 
 [ "$1" ] && [ "$2" ] || exit 1
 
-printf "#!/usr/bin/env %s\n" "$2" > "$1" && chmod +x "$1"
+if [ "$2" = 'sh' ]; then
+	printf "#!/bin/sh" > "$1" && chmod +x "$1"
+else
+	printf "#!/usr/bin/env %s\n" "$2" > "$1" && chmod +x "$1"
+fi
