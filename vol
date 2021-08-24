@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# [Vol]ume
 
 [ "$1" ] || {
 	echo 'error: no volume input detected' 2>&1
