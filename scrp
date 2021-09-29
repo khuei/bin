@@ -5,6 +5,6 @@
 scratch=$(mktemp -d)
 echo 'Spawing subshell in scratch directory:'
 echo "$scratch"
-(cd $scratch; zsh)
+(cd "$scratch" || exit; zsh)
 echo "Removing scratch directory"
 rm -rf "$scratch"
