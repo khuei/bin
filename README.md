@@ -10,7 +10,6 @@
 - grt: toggle git remote url between https and ssh
 - m: download music using youtube-dl
 - mks: make script with specified header
-- rec: record screen
 - scrp: create a scrap directory
 - suv: speed up input videos
 - vog: convert video to gif
