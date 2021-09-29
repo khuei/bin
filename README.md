@@ -16,5 +16,4 @@
 - scrp: create a scrap directory
 - suv: speed up input videos
 - vog: convert video to gif
-- vol: set volume for alsa backend
 - wp: randomize or select wallpaper
