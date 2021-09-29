@@ -10,7 +10,6 @@
 - grt: toggle git remote url between https and ssh
 - m: download music using youtube-dl
 - mks: make script with specified header
-- nt: make note
 - rec: record screen
 - scr: take screenshot of entire screen
 - scrp: create a scrap directory
