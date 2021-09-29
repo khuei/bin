@@ -11,7 +11,6 @@
 - m: download music using youtube-dl
 - mks: make script with specified header
 - rec: record screen
-- scr: take screenshot of entire screen
 - scrp: create a scrap directory
 - suv: speed up input videos
 - vog: convert video to gif
