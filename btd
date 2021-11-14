@@ -1,0 +1,15 @@
+#!/bin/sh
+
+bat_dir=/sys/class/power_supply/BAT0
+
+read -r capacity < "$bat_dir/capacity"
+read -r status   < "$bat_dir/status"
+
+while true; do
+	if [ "$(echo "$capacity % 10" | bc)" -eq 0 ]; then
+		notify-send -u "low" -t 1 "battery: $capacity% [$status]"
+		while [ "$(echo "capacity % 10" | bc)" -eq 0 ]; do
+			sleep 0.1;
+		done
+	fi
+done
